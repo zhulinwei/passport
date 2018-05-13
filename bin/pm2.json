@@ -1,0 +1,12 @@
+{
+  "apps" : [{
+    "name"        : "passport",
+    "script"      : "./app.js",
+    "watch"       : true,
+    "env": {
+      "PORT": 7630,
+      "NODE_ENV": "development",
+      "MONGODB": "mongodb://localhost:27017"
+    }
+  }]
+}

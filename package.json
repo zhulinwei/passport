@@ -1,0 +1,20 @@
+{
+  "name": "passport",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Level.Z",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.4.0",
+    "lodash": "^4.17.10",
+    "mongodb": "^3.1.0-beta4",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5"
+  }
+}
