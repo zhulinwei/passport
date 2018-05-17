@@ -6,7 +6,11 @@
     "env": {
       "PORT": 7630,
       "NODE_ENV": "development",
-      "MONGODB": "mongodb://localhost:27017"
+      "MONGODB": "mongodb://localhost:27017",
+      "QQ_WEB_APPID": "xxxxx",
+      "QQ_WEB_APPKEY": "xxxx",
+      "WEIBO_WEB_APPID": "xxxxx",
+      "WEIBO_WEB_APPKEY": "xxxxx"
     }
   }]
 }
