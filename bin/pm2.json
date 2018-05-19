@@ -4,13 +4,17 @@
     "script"      : "./app.js",
     "watch"       : true,
     "env": {
-      "PORT": 7630,
+      "PORT": 7800,
       "NODE_ENV": "development",
       "MONGODB": "mongodb://localhost:27017",
-      "QQ_WEB_APPID": "xxxxx",
-      "QQ_WEB_APPKEY": "xxxx",
-      "WEIBO_WEB_APPID": "xxxxx",
-      "WEIBO_WEB_APPKEY": "xxxxx"
+      "QQ_WEB_APPID": "",
+      "QQ_WEB_APPKEY": "",
+      "WEIBO_WEB_APPID": "",
+      "WEIBO_WEB_APPKEY": "",
+      "WECHAT_WEB_APPID": "",
+      "WECHAT_WEB_APPKEY": "",
+      "BAIDU_WEB_APPID": "",
+      "BAIDU_WEB_APPKEY": ""
     }
   }]
 }

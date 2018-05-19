@@ -23,6 +23,18 @@ class BaiduStrategy extends Base {
   }
 
   async __getToken(code, appId, appKey, redirect) {
+    var a = {
+      method: 'GET',
+      url: '/oauth/2.0/token',
+      qs: {
+        code,
+        client_id: appId,
+        client_secret: appKey,
+        redirect_uri: redirect,
+        grant_type: 'authorization_code',
+      }
+    }
+    console.log(a);
     return await this.request({
       method: 'GET',
       url: '/oauth/2.0/token',
@@ -63,7 +75,10 @@ class BaiduStrategy extends Base {
     const appKey = this[APPKEY];
     if (!(appId || appKey)) throw Error('无效的配置信息！');
     const code = options.query.code;
-    const baiduToken = await this.__getToken(code, appId, appKey);
+    console.log(1);
+    const redirect = options.url.substr(0, options.url.indexOf('code')-1).replace('http:', 'https:');
+    const baiduToken = await this.__getToken(code, appId, appKey, redirect);
+    console.log(baiduToken);
     if (!(baiduToken && baiduToken.access_token && baiduToken.openid)) throw Error('获取百度授权失败：无法获取百度用户令牌!');
     const openId = baiduToken.openid;
     const accessToken = baiduToken.access_token;

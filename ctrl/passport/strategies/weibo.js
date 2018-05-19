@@ -71,7 +71,7 @@ class WeiboStrategy extends Base {
     const accessToken = weiboToken.access_token;
 
     const user = await this.__getUserInfo(openId, accessToken);
-    if (!user.openid) throw Error('获取微博授权失败，无法获取用户信息！'); 
+    if (!user.id) throw Error('获取微博授权失败，无法获取用户信息！'); 
 
     return this.__format(Object.assign({ openId, accessToken }, user));
   }
