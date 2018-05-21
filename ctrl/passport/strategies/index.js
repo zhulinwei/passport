@@ -3,6 +3,7 @@ const QQStrategy = require('./qq');
 const BaiduStrategy = require('./baidu');
 const WeiboStrategy = require('./weibo');
 const WechatStrategy = require('./wechat');
+const PasswordStrategy = require('./passpord');
 
 class Authenticator {
   constructor() {
@@ -21,5 +22,6 @@ authenticator.use('qq', QQStrategy);
 authenticator.use('baidu', BaiduStrategy);
 authenticator.use('weibo', WeiboStrategy);
 authenticator.use('wechat', WechatStrategy);
+authenticator.use('password', PasswordStrategy);
 
 module.exports = authenticator;
