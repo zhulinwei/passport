@@ -3,7 +3,7 @@ const QQStrategy = require('./qq');
 const BaiduStrategy = require('./baidu');
 const WeiboStrategy = require('./weibo');
 const WechatStrategy = require('./wechat');
-const PasswordStrategy = require('./passpord');
+const PasswordStrategy = require('./password');
 
 class Authenticator {
   constructor() {
