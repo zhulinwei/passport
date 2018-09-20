@@ -1,4 +1,4 @@
-const { mongo } = require('../db');
+const { mongo } = require('../database');
 
 class User {
   constructor() {

@@ -1,5 +1,5 @@
 const Router = require('koa-router');
-const controller = require('../ctrl');
+const controller = require('../controller');
 
 class Api {
   constructor() {
