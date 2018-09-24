@@ -14,11 +14,11 @@ class qqStrategy extends Base {
   __format(user) {
     if (!user) throw Error('无效的用户信息！');
     return {
+      body: user,
       provider: 'password',
       mobile: user.mobile,
       password: user.password,
       avatar: 'default.png',
-      body: user
     };
   }
 

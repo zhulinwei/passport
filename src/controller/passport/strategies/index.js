@@ -1,9 +1,9 @@
 const _ = require('lodash');
 const QQStrategy = require('./qq');
 const BaiduStrategy = require('./baidu');
+const LocalStrategy = require('./local');
 const WeiboStrategy = require('./weibo');
 const WechatStrategy = require('./wechat');
-const PasswordStrategy = require('./password');
 
 class Authenticator {
   constructor() {
@@ -21,7 +21,7 @@ const authenticator = new Authenticator();
 authenticator.use('qq', QQStrategy);
 authenticator.use('baidu', BaiduStrategy);
 authenticator.use('weibo', WeiboStrategy);
+authenticator.use('local', LocalStrategy);
 authenticator.use('wechat', WechatStrategy);
-authenticator.use('password', PasswordStrategy);
 
 module.exports = authenticator;

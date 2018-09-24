@@ -5,8 +5,9 @@ class MongoDB {
   constructor() {
     this.dbs = {};
   }
-  client () {
-    return this.mongo;
+  getDb(name) {
+    if (!name) throw new Error('无效的数据库名称');
+    return this.dbs[name];
   }
   async init() {
     const keys = Object.keys(config);
@@ -16,7 +17,6 @@ class MongoDB {
       let client = await MongoClient.connect(url, options);
       this.dbs[key] = client.db(key);
     }));
-    return this.dbs;
   }
 }
 

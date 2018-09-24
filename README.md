@@ -1,6 +1,7 @@
 a passport for koa2 
 
-> Last Changed：2018-05-20
+> Create At：2018-05-20
+> Last Changed：2018-09-24
 > Authors: [Level.Z]
 
 # Introduction
@@ -10,7 +11,7 @@ A set of third-party login (QQ, WeChat, Weibo, and Baidu) demos based on Oauth a
 the basic rules of routing is `router.get('/api/login:type/:mode')`
 
 ## password
-* url: `POST /api/login/password`
+* url: `POST /api/login/local`
 * form: 
 
 |parameter|type|

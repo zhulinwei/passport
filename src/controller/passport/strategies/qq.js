@@ -61,11 +61,11 @@ class QQStrategy extends Base {
   __format(user) {
     if (!user) throw Error('无效的用户信息！');
     return {
+      body: user,
       provider: 'qq',
       openId: user.openId,
       nickname: user.nickname,
       avatar: user.figureurl_qq_2 || user.figureurl_qq_1,
-      body: user
     };
   }
 
@@ -88,11 +88,7 @@ class QQStrategy extends Base {
     const user = await this.__getUserInfo(appId, openId, accessToken);
     if (!user.nickname) throw Error('获取QQ授权失败，无法获取用户信息！'); 
 
-    return this.__format(Object.assign({
-      openId,
-      accessToken,
-      refreshToken
-    }, user));
+    return this.__format(Object.assign({ openId, accessToken, refreshToken }, user));
   }
 
   async authenticate(authorization) {
