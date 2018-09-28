@@ -62,10 +62,10 @@ class QQStrategy extends Base {
     if (!user) throw Error('无效的用户信息！');
     return {
       body: user,
-      provider: 'qq',
       openId: user.openId,
       nickname: user.nickname,
       avatar: user.figureurl_qq_2 || user.figureurl_qq_1,
+      provider: common.enum.PlatformProvider.QQ,
     };
   }
 

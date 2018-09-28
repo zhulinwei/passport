@@ -1,27 +1,33 @@
 const sinon = require('sinon');
 const assert = require('assert');
-const lib = require('../../lib');
-
-lib.init();
-const config = { appId: 'baiduAppId', appKey: 'baiduAppKey' };
-const BaiduStrategy = require('../../../src/controller/passport/strategies/baidu');
-const baiduStrategy = new BaiduStrategy(config);
+const Enum = require('../../../src/common').enum;
+const mongoStub = require('../../lib').mongoStub;
 
 describe('baidu login', () => {
-  let mongoStub;
   before(() => {
-      });
+    mongoStub.init();
+  });
 
   after(() => {
-    mongoStub.restore();
+    mongoStub.clear();
   });
 
   it('baidu authorize', async () => {
+    const BaiduStrategy = require('../../../src/controller/passport/strategies/baidu');
+    const baiduStrategy = new BaiduStrategy({ appId: 'baiduAppId', appKey: 'baiduAppKey' });
+    const baiduTokenStub = sinon.stub(baiduStrategy, '__getToken').callsFake(() => {
+      return { openid: 'userOpenId', access_token: 'userAccessToken' };
+    });
+    const baiduUserInfoStub = sinon.stub(baiduStrategy, '__getUserInfo').callsFake(() => {
+      return { openid: 'userOpenId' };
+    });
     const options = {
       url: 'http://test.com?code=baiduCode',
       query: { code: 'baiduCode' }
     };
-    const result = await baiduStrategy.authorize(options);
-    assert.ok(1, 1); 
+    const user = await baiduStrategy.authorize(options);
+    assert.ok(user.provider, Enum.PlatformProvider.BAIDU);
+    baiduTokenStub.restore();
+    baiduUserInfoStub.restore();
   });
 });

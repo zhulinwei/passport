@@ -5,7 +5,7 @@ const authenticator = require('./strategies');
 
 function getStrategyConfig(platform, client) {
   if (!platform) throw new Error('无效的登陆平台');
-  if (![Enum.LoginStrategies.QQ, Enum.LoginStrategies.BAIDU, Enum.LoginStrategies.WEIBO, Enum.LoginStrategies.WECHAT].includes(platform))
+  if (![Enum.PlatformProvider.QQ, Enum.PlatformProvider.BAIDU, Enum.PlatformProvider.WEIBO, Enum.PlatformProvider.WECHAT].includes(platform))
     throw new Error('不合法的登陆平台');
   const platformConfig = _.find(configs.authorization, authenticator => authenticator.platform === platform);
   if (!platformConfig) throw new Error('无效的平台信息');
@@ -18,7 +18,7 @@ class PassportController {
   async authenticate(ctx, next) {
     if (ctx.state.passport) return await next();
     const { platform, client } = ctx.params;
-    const config = platform === Enum.LoginStrategies.Local ? {} : getStrategyConfig(platform, client);
+    const config = platform === Enum.PlatformProvider.Local ? {} : getStrategyConfig(platform, client);
     const strategy = new Strategy(config);
     const options = {
       url: ctx.href,

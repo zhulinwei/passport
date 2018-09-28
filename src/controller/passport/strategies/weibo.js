@@ -50,11 +50,11 @@ class WeiboStrategy extends Base {
   __format(user) {
     if (!user) throw Error('无效的用户信息！');
     return {
-      provider: 'weibo',
+      body: user,
       openId: user.openId,
       avatar: user.headimgurl,
       nickname: user.nickname,
-      body: user
+      provider: common.enum.PlatformProvider.WEIBO,
     };
   }
 

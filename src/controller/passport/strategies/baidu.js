@@ -52,10 +52,10 @@ class BaiduStrategy extends Base {
     if (!user) throw Error('无效的用户信息！');
     return {
       body: user,
-      provider: 'baidu',
       openId: user.openId,
       avatar: user.headimgurl,
       nickname: user.nickname,
+      provider: common.enum.PlatformProvider.BAIDU,
     };
   }
 

@@ -1,6 +1,6 @@
 
 module.exports = {
-  LoginStrategies: {
+  PlatformProvider: {
     QQ: 'qq',
     LOCAL: 'local',
     BAIDU: 'baidu',

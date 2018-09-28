@@ -1,7 +1,7 @@
 const sinon = require('sinon');
 const mongo = require('../../src/database').mongo;
 
-class Helper {
+class MongoStub{
   constructor() {
     this.mongoStub = {};
   }
@@ -17,5 +17,5 @@ class Helper {
   }
 }
 
-module.exports = new Helper();
+module.exports = new MongoStub();
 
