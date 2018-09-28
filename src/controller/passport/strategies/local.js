@@ -15,10 +15,10 @@ class qqStrategy extends Base {
     if (!user) throw Error('无效的用户信息！');
     return {
       body: user,
-      provider: 'password',
       mobile: user.mobile,
       password: user.password,
       avatar: 'default.png',
+      provider: common.enum.PlatformProvider.LOCAL,
     };
   }
 
@@ -27,7 +27,7 @@ class qqStrategy extends Base {
     if (!mobile) throw Error('无效的手机号码！');
     if (!password) throw Error('无效的密码！');
 
-    return this.__format(Object.assign({ mobile, password }, user));
+    return this.__format(Object.assign({ mobile, password }));
   }
 
   async authenticate(authorization) {
